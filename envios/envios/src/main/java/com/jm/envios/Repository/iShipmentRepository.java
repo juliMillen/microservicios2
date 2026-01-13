@@ -14,5 +14,5 @@ public interface iShipmentRepository extends JpaRepository<Shipment, Long> {
 
 
     @Query("SELECT ship FROM Shipment ship WHERE ship.idClient = :idClient  ")
-    List<ShipmentDTO> findShipmentById(@Param("idClient") Long idClient);
+    List<Shipment> findShipmentById(@Param("idClient") Long idClient);
 }

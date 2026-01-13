@@ -26,7 +26,17 @@ public class ShipmentService {
         if(idClient==null){
             throw new RuntimeException("idClient is null");
         }
-        return shipmentRepository.findShipmentById(idClient);
+        List<Shipment> list = shipmentRepository.findShipmentById(idClient);
+
+        return  list.stream().map(ship -> {
+            ShipmentDTO shipmentDTO = new ShipmentDTO();
+            shipmentDTO.setIdClient(ship.getIdClient());
+            shipmentDTO.setCreationDate(ship.getCreationDate());
+            shipmentDTO.setEstate(ship.getEstate());
+            shipmentDTO.setDescription(ship.getDescription());
+            shipmentDTO.setIdClient(ship.getIdClient());
+            return shipmentDTO;
+        }).toList();
     }
 
 
