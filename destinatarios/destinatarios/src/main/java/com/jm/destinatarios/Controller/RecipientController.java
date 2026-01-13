@@ -18,7 +18,7 @@ public class RecipientController {
     @Autowired
     private RecipientService recipientService;
 
-    @GetMapping("/recipient/shipment/{id}")
+    @GetMapping("/shipment/{id}")
     public ResponseEntity<RecipientDTO> getRecipient(@PathVariable Long id){
         RecipientDTO toSearch = recipientService.getRecipientByShipment(id);
         return new ResponseEntity<>(toSearch, HttpStatus.OK);
